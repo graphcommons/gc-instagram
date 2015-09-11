@@ -27,3 +27,7 @@ IG_CLIENT_ID=<ig_client_id> IG_CLIENT_SECRET=<ig_client_secret> ruby init_access
 IG_CLIENT_ID=<ig_client_id> IG_CLIENT_SECRET=<ig_client_secret> IG_ACCESS_TOKEN=<ig_access_token> GC_API_KEY=<gc_api_key> ruby app.rb
 ```
 - If all works well, you should see the id of the generated graph in the output.
+
+#### Sample Output
+Here's the graph I generated with this program:
+https://graphcommons.com/graphs/7c244715-6de4-45c5-a1dd-7959b1aee17d

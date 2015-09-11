@@ -8,15 +8,20 @@ end
 
 liker_hash = Hash.new # to avoid duplicates
 
+# node signals are collected here
 nodes_array = Array.new
+
+#edge signals are collected here
 edges_array = Array.new
 
 client = Instagram.client(:access_token => ENV["IG_ACCESS_TOKEN"])
 media_feed = client.user_recent_media
 
+
 for media_item in media_feed
   image_hash = Hash.new
 
+  # adding Image node
   nodes_array << {
     :action => "node_create",
     :name => media_item.id,
@@ -27,6 +32,7 @@ for media_item in media_feed
   }
 
   media_item.likes.data.each do |liker|
+    # skip if liker node is already added
     if liker_hash[liker.username].nil?
       nodes_array << {
         :action => "node_create",
@@ -38,6 +44,7 @@ for media_item in media_feed
       liker_hash[liker.username] = true
     end
 
+    # Liker -[LIKES]->Image
     edges_array << {
       :action => "edge_create",
       :from_name => liker.username,
@@ -49,6 +56,8 @@ for media_item in media_feed
   end
 end
 
+# building the body of the request to generate the graph
+# note the node and edge arrays are concatenated into the signals key
 generate_graph = {
   :name => "Instagram Map",
   :status => 0,
@@ -56,10 +65,12 @@ generate_graph = {
   :signals => nodes_array + edges_array
 }
 
+# dont forget to set the API KEY in the header
 c = Curl::Easy.http_post("https://graphcommons.com/api/v1/graphs", generate_graph.to_json) do |curl|
   curl.headers['Content-Type'] = 'application/json'
   curl.headers['Authentication'] = ENV["GC_API_KEY"]
 end
 
+# output the response
 c.on_body { |data| print(data) }
 c.perform
