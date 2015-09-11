@@ -66,11 +66,11 @@ generate_graph = {
 }
 
 # dont forget to set the API KEY in the header
-c = Curl::Easy.http_post("https://graphcommons.com/api/v1/graphs", generate_graph.to_json) do |curl|
+c = Curl::Easy.http_post("http://graphcommons.com/api/v1/graphs", generate_graph.to_json) do |curl|
   curl.headers['Content-Type'] = 'application/json'
   curl.headers['Authentication'] = ENV["GC_API_KEY"]
 end
 
-# output the response
-c.on_body { |data| print(data) }
-c.perform
+# output the response, just print out the id
+response_hash = JSON.parse(c.body_str, {:symbolize_names => true})
+puts response_hash[:graph][:id]
