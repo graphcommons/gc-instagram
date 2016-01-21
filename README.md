@@ -17,21 +17,22 @@ In order to use this program, you will need two access tokens:
 - `bundle install` (Make sure you have `bundler` installed)
 
 #### Using
-1. Run `init_access.rb` with ENV variables for Instagram Client ID and Client Secret
+1.Run `init_access.rb` with ENV variables for Instagram Client ID and Client Secret
 ```
 IG_CLIENT_ID=<ig_client_id> IG_CLIENT_SECRET=<ig_client_secret> ruby init_access.rb
 ```
-2. Open browser `localhost:4567` and click on the link to retrieve your Instagram access token
+2.Open browser `localhost:4567` and click on the link to retrieve your Instagram access token
 
-3. Run `app.rb` with four ENV variables:
-    - Instagram Client Id
-    - Instagram Client Secret
-    - Instagram Access Token
-    - Graph Commons API key
+3.Run `app.rb` with four ENV variables:
+- Instagram Client Id
+- Instagram Client Secret
+- Instagram Access Token
+- Graph Commons API key
 ```
 IG_CLIENT_ID=<ig_client_id> IG_CLIENT_SECRET=<ig_client_secret> IG_ACCESS_TOKEN=<ig_access_token> GC_API_KEY=<gc_api_key> ruby app.rb
 ```
-4. If all works well, you should see the URL of the generated graph, open it in the browser and enjoy your Instagram graph.
+
+4.If all works well, you should see the URL of the generated graph, open it in the browser and enjoy your Instagram graph.
 
 #### Sample Output
 Here's the graph generated with this program:
