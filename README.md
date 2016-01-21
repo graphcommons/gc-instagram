@@ -21,7 +21,7 @@ In order to use this program, you will need two access tokens:
 ```
 IG_CLIENT_ID=<ig_client_id> IG_CLIENT_SECRET=<ig_client_secret> ruby init_access.rb
 ```
-2.Open browser `localhost:4567` and click on the link to retrieve your Instagram access token
+2.Open browser `localhost:4567` and click on the link to *retrieve your Instagram access token*
 
 3.Run `app.rb` with four ENV variables:
 - Instagram Client Id
