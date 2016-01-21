@@ -1,6 +1,9 @@
 require 'instagram'
 require 'sinatra'
 
+# Using
+# IG_CLIENT_ID= IG_CLIENT_SECRET= ruby init_access.rb
+
 CALLBACK_URL = "http://localhost:4567/oauth/callback"
 
 Instagram.configure do |config|
@@ -13,7 +16,7 @@ get "/" do
 end
 
 get "/oauth/connect" do
-  redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL, :scope => 'comments relationships likes')
+  redirect Instagram.authorize_url(:redirect_uri => CALLBACK_URL, :scope => "comments relationships likes")
 end
 
 get "/oauth/callback" do
