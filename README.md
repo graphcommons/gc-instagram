@@ -24,10 +24,10 @@ IG_CLIENT_ID=<ig_client_id> IG_CLIENT_SECRET=<ig_client_secret> ruby init_access
 2. Open browser `localhost:4567` and click on the link to retrieve your Instagram access token
 
 3. Run `app.rb` with four ENV variables:
-- Instagram Client Id
-- Instagram Client Secret
-- Instagram Access Token
-- Graph Commons API key
+    - Instagram Client Id
+    - Instagram Client Secret
+    - Instagram Access Token
+    - Graph Commons API key
 ```
 IG_CLIENT_ID=<ig_client_id> IG_CLIENT_SECRET=<ig_client_secret> IG_ACCESS_TOKEN=<ig_access_token> GC_API_KEY=<gc_api_key> ruby app.rb
 ```
@@ -38,4 +38,4 @@ Here's the graph generated with this program:
 https://graphcommons.com/graphs/7c244715-6de4-45c5-a1dd-7959b1aee17d
 
 #### Where to go from here
-Learn more at the Graph Commons API documentation https://graphcommons.github.io/api-v1
+Learn more about the Graph Commons API documentation https://graphcommons.github.io/api-v1
